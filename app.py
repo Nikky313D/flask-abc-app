@@ -147,7 +147,7 @@ def upload_file():
 
         # Guardar excel con 4 hojas
         excel_path = 'resultado_abc.xlsx'
-        with pd.ExcelWriter(excel_path, engine='xlsxwriter') as writer:
+        with pd.ExcelWriter(excel_path, engine='openpyxl') as writer:
             for clase in ['A','B','C']:
                 df_temp = df_abc[df_abc['ABC']==clase]
                 df_temp.to_excel(writer, sheet_name=clase,index=False)
